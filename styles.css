@@ -513,8 +513,8 @@ section {
 
 .style-card {
   background: #fff;
-  width: 320px;
-  height: 320px;
+  width: 400px;
+  height: 500px;
   padding: 24px;
   border-radius: 30px;
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.22);
@@ -541,7 +541,7 @@ section {
   position: absolute;
   width: 72px;
   height: 72px;
-  background: url("imgs/stars2.png") center/contain no-repeat;
+  background: url("imgs/stars-green.png") center/contain no-repeat;
   bottom: -40px;
   right: 22px;
 }
@@ -571,38 +571,61 @@ section {
   color: #fff;
 }
 
+.theme-list-wrapper {
+  overflow-x: auto;
+}
+
 .theme-list {
   list-style: none;
   padding: 0;
   margin: 0 auto 48px;
-  max-width: 900px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 24px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 .theme-list li {
   background: var(--pink);
   border: 2px solid #000;
   border-radius: 50%;
-  padding: 32px 0;
-  font-weight: 600;
-  text-transform: uppercase;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Reverie", "Playfair Display", serif;
+  font-size: 1.35rem;
+  text-transform: none;
   color: #000;
   position: relative;
   box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  padding: 0 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .theme-list li::after {
   content: "";
   position: absolute;
-  width: 24px;
-  height: 24px;
-  background: var(--pink);
-  border: 2px solid #000;
-  clip-path: polygon(50% 0%, 60% 35%, 100% 41%, 68% 59%, 80% 100%, 50% 75%, 20% 100%, 32% 59%, 0 41%, 40% 35%);
-  top: -16px;
-  right: 12px;
+  width: 36px;
+  height: 36px;
+  background: url("imgs/stars.png") center/contain no-repeat;
+  bottom: -12px;
+  right: -6px;
+}
+
+.theme-list li:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: white;
+  border-color:  #FFDAFB;
+  box-shadow: 0 18px 28px rgba(0, 0, 0, 0.3);
+}
+
+.theme-list li:hover::after {
+  background-image: url("imgs/stars-green.png");
 }
 
 .customize-outfit .section-heading {
