@@ -84,7 +84,8 @@ button {
 }
 
 .nav-links a:hover {
-  border-color: #1d1818;
+  border-color: black;
+  transition: 0.3s;
 }
 
 .nav-icons {
