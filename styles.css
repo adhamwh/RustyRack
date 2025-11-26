@@ -66,25 +66,29 @@ button {
 }
 
 .logo img {
-  width: 180px;
+  width: 250px;
 }
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  align-items: center; 
+  gap: 34px;
   font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
+  text-transform: none; /* allow mixed case */
+  line-height: 1.1;
+  
 }
 
 .nav-links a {
   color: #1d1818;
-  padding-bottom: 6px;
-  border-bottom: 2px solid transparent;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 8px 12px;
 }
 
 .nav-links a:hover {
-  border-color: black;
+  border-color: rgb(0, 0, 0);
   transition: 0.3s;
 }
 
@@ -153,14 +157,14 @@ button {
   position: relative;
   z-index: 3;
   max-width: 720px;
-  padding: 32px 48px;
+  padding: 24px 48px;
 }
 
 .hero-title-top {
   font-family: "Reverie", "Playfair Display", serif;
   font-size: clamp(2.8rem, 5vw, 5rem);
   margin: 0;
-  font-weight: 700;
+  font-weight: normal;
   letter-spacing: 0.015em;
   line-height: 1.05;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
@@ -178,6 +182,7 @@ button {
   position: relative;
   z-index: 2;
   transform: translateY(-10px);
+  margin-top: -24px; 
 }
 
 .hero-star-img {
@@ -189,15 +194,19 @@ button {
 }
 
 .hero-star-left {
-  left: 5%;
-  top: 70%;
-  transform: translate(-50%, -50%) rotate(-12deg);
+  left: 120px;
+  top: 120px;
+  width: 60px;
+  height: 70px;
+
 }
 
 .hero-star-right {
-  right: 10%;
-  top: 18%;
-  transform: translate(50%, -50%) rotate(10deg);
+  right: -26px;
+  top: 1%;
+  width: 60px;
+  height: 70px;
+  z-index: 5; /* bring it above the header/overlay */
 }
 
 .primary-btn.hero-btn {
@@ -237,7 +246,7 @@ button {
 .polaroid-frame {
   background: #fff;
   border: 2px solid #000;
-  border-radius: 18px;
+  border-radius: 1px;
   padding: 16px 16px 32px;
   box-shadow: 0 30px 45px rgba(0, 0, 0, 0.45);
   position: relative;
@@ -247,7 +256,7 @@ button {
   width: 100%;
   height: 260px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 1px;
 }
 
 .polaroid-frame span {
@@ -368,9 +377,9 @@ section {
 .about-p{
   margin-bottom: 50px;
   align-self: center;
-
-
 }
+
+
 
 
 .about::before,
@@ -408,7 +417,7 @@ section {
   /*font-size: clamp(2.8rem, 4vw, 3.9rem);*/
   font-size: 70px;
   color: var(--pink);
-  margin-bottom: 6px;
+  margin: 0 0 -24px; line-height: 1;
 }
 
 .about h2 {
@@ -416,6 +425,7 @@ section {
   font-size: clamp(3rem, 4.2vw, 4.4rem);
   margin: 0;
   transform: translateY(-6px);
+   font-weight: 400;
 }
 
 .about p {
@@ -458,9 +468,10 @@ section {
 }
 
 .section-heading p {
-  margin: 0;
+  margin: 0 0 -40px;    /* keep em touching */
+  line-height: 1;
   font-family: "Reverie", "Playfair Display", serif;
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: clamp(2.8rem, 5.5vw, 4.1rem); 
 }
 
 .section-heading h2 {
@@ -468,6 +479,7 @@ section {
   font-size: clamp(3rem, 4vw, 4.5rem);
   margin: 0;
   color: var(--sage);
+  font-weight: 400; 
 }
 
 .shop-style,
@@ -506,7 +518,7 @@ section {
 .style-grid {
   display: flex;
   justify-content: center;
-  gap: 42px;
+  gap: 68px;
   flex-wrap: wrap;
   position: relative;
   z-index: 2;
@@ -514,48 +526,77 @@ section {
 
 .style-card {
   background: #fff;
-  width: 400px;
-  height: 500px;
+  width: 340px;
+  height: 430px;
   padding: 24px;
-  border-radius: 30px;
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.22);
+  border-radius: 4px;
+  box-shadow: 0 42px 48px rgba(0, 0, 0, 0.25),
+              0 20px 24px rgba(0, 0, 0, 0.18);
   text-align: center;
   position: relative;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.style-card:nth-child(1) {
-  transform: perspective(900px) rotateY(12deg) translateY(12px);
+
+.style-grid .style-card:nth-child(1),
+.style-grid .style-card:nth-child(3) {
+  transform: translateY(-48px); /* tweak: -12px to -24px */
 }
 
-.style-card:nth-child(2) {
-  transform: translateY(-20px) scale(1.08);
-  box-shadow: 0 35px 55px rgba(0, 0, 0, 0.28);
-}
 
-.style-card:nth-child(3) {
-  transform: perspective(900px) rotateY(-12deg) translateY(12px);
+.style-card:nth-child(1)::after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: url("imgs/stars-green.png") center/contain no-repeat;
+  bottom: -20px;
+  right: -22px;
 }
 
 .style-card:nth-child(2)::after {
   content: "";
   position: absolute;
-  width: 72px;
-  height: 72px;
+  width: 48px;
+  height: 48px;
   background: url("imgs/stars-green.png") center/contain no-repeat;
-  bottom: -40px;
-  right: 22px;
+  bottom: -20px;
+  right: -22px;
+}
+
+.style-card:nth-child(3)::after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: url("imgs/stars-green.png") center/contain no-repeat;
+  bottom: -20px;
+  right: -22px;
 }
 
 .style-card img {
   width: 100%;
-  height: calc(100% - 80px);
+  height: calc(100% - 60px);
   object-fit: cover;
-  border: 12px solid #fdf8ff;
-  border-radius: 4px;
+  /*border: 12px solid #fdf8ff;
+  border-radius: 2px; */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
   margin-bottom: 12px;
 }
+
+.style-card .ghost-btn {
+  border: 2px solid #000;
+  border-radius: 16px;   /* or whatever you like */
+  padding: 8px 14px;    /* adjust if the border makes it feel tight */
+  background: #fff;      /* keep it white like the polaroid */
+}
+
+.style-card .ghost-btn:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+
+
 
 .select-theme {
   background-color: #7ea772;
@@ -598,7 +639,7 @@ section {
   align-items: center;
   justify-content: center;
   font-family: "Reverie", "Playfair Display", serif;
-  font-size: 1.35rem;
+  font-size: 2.2rem;
   text-transform: none;
   color: #000;
   position: relative;
@@ -611,8 +652,8 @@ section {
 .theme-list li::after {
   content: "";
   position: absolute;
-  width: 36px;
-  height: 36px;
+  width: 54px;
+  height: 54px;
   background: url("imgs/stars.png") center/contain no-repeat;
   bottom: -12px;
   right: -6px;
