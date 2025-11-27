@@ -126,6 +126,7 @@ button {
   border-bottom: 2px solid #000;
 }
 
+/* NOT WORKING - DONT USE
 .hero::before,
 .hero::after {
   content: "";
@@ -146,6 +147,7 @@ button {
   bottom: -24px;
   clip-path: polygon(0 65%, 10% 45%, 20% 75%, 30% 40%, 40% 70%, 50% 42%, 60% 70%, 70% 42%, 80% 70%, 90% 45%, 100% 65%, 100% 100%, 0 100%);
 }
+*/
 
 .hero-overlay {
   position: absolute;
@@ -379,9 +381,7 @@ section {
   align-self: center;
 }
 
-
-
-
+/* NOT WORKING - DONT USE
 .about::before,
 .about::after {
   content: "";
@@ -404,6 +404,7 @@ section {
   background: var(--pink);
   clip-path: polygon(0 40%, 10% 70%, 20% 35%, 30% 65%, 40% 32%, 50% 65%, 60% 32%, 70% 65%, 80% 35%, 90% 70%, 100% 45%, 100% 100%, 0 100%);
 }
+*/
 
 .about-copy {
   max-width: 860px;
@@ -441,7 +442,7 @@ section {
   top: 24%;
   width: 150px;
   opacity: 0.8;
-  z-index: 1;
+  z-index: 5;
 }
 
 .about-star {
@@ -449,7 +450,7 @@ section {
   left: 0;
   top: 10%;
   width: 230px;
-  z-index: 1;
+  z-index: 5;
   filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3));
 }
 
@@ -494,6 +495,7 @@ section {
   position: relative;
 }
 
+/* NOT WORKING - DONT USE
 .shop-style::before,
 .shop-style::after {
   content: "";
@@ -514,6 +516,103 @@ section {
   bottom: -23px;
   clip-path: polygon(0 45%, 10% 70%, 20% 35%, 30% 65%, 40% 35%, 50% 60%, 60% 32%, 70% 65%, 80% 35%, 90% 65%, 100% 32%, 100% 100%, 0 100%);
 }
+*/
+
+.section-tear {
+  position: relative;
+  overflow: visible;
+}
+
+/* shared */
+.section-tear--top::before,
+.section-tear--top::after,
+.section-tear--bottom::before,
+.section-tear--bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  pointer-events: none;
+}
+
+/* green on top */
+.section-tear--top::before,
+.section-tear--bottom::before {
+  z-index: 3;
+  background-image: url("imgs/GreenShred.png");
+}
+
+/* white underneath */
+.section-tear--top::after,
+.section-tear--bottom::after {
+  z-index: 2;
+  background-image: url("imgs/WhiteShred.png");
+}
+
+/* Top tear (leaks upward into hero) */
+.section-tear--top::before { top: -70px; }
+.section-tear--top::after  { top: -90px; }
+
+/* Bottom tear (flipped, faces upward into the next section) */
+.section-tear--bottom::before { bottom: -70px; transform: scaleY(1); }
+.section-tear--bottom::after  { bottom: -60px; transform: scaleY(1); }
+
+
+/* Flip the top tear on the shop section only */
+.shop-style.section-tear--top::before{
+  transform: scaleY(-1);
+  top: -60px;   /* tweak: adjust the overlap you like */
+}
+.shop-style.section-tear--top::after {
+  transform: scaleY(-1);
+  top: -30px;   /* keep the same overlap you like */
+}
+
+
+/* 1) Define the exact BG once */
+.select-theme {
+  --select-bg: 
+    linear-gradient(90deg, rgba(126,167,114,0) 0%, rgba(126,167,114,0.4) 35%, rgba(126,167,114,0.8) 55%, rgba(126,167,114,1) 75%, rgba(126,167,114,1) 100%),
+    linear-gradient(45deg, rgba(255,255,255,0.08) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.08) 75%),
+    linear-gradient(45deg, rgba(255,255,255,0.08) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.08) 75%),
+    #7ea772;
+  background: var(--select-bg);
+  background-size: 120px 120px, 120px 120px, 120px 120px, auto;
+  background-position: 0 0, 0 0, 60px 60px, center;
+}
+
+/* 2) Apply the same BG to the tear shape */
+.select-theme.section-tear--top::before {
+  top: -20px;
+  background: var(--select-bg);
+  background-size: 120px 120px, 120px 120px, 120px 120px, auto;
+  background-position: 0 0, 0 0, 60px 60px, center;
+  background-repeat: repeat;
+  mask: url("imgs/GreenShred.png") center / 100% 140px no-repeat;
+  -webkit-mask: url("imgs/GreenShred.png") center / 100% 140px no-repeat;
+  opacity: 1;
+}
+
+/* 3) Boost the white edge so it shows */
+.select-theme.section-tear--top::after {
+  background-image: url("imgs/WhiteShred.png");
+  top: -80px; /* nudge until edge is visible */
+}
+
+/* UNCOMMENT FOR TEAR
+.customize-outfit.section-tear--top::before { transform: scaleY(-1); top: -60px; }
+.customize-outfit.section-tear--top::after  { transform: scaleY(-1); top: -30px; }
+*/
+.customize-outfit.section-tear--top::before,
+.customize-outfit.section-tear--top::after {
+  transform: scaleY(-1);
+  top: -60px;
+}
+
 
 .style-grid {
   display: flex;
@@ -598,13 +697,28 @@ section {
 
 
 
-.select-theme {
+/*.select-theme {
   background-color: #7ea772;
   background-image:
     linear-gradient(45deg, rgba(255, 255, 255, 0.08) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.08) 75%),
     linear-gradient(45deg, rgba(255, 255, 255, 0.08) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.08) 75%);
   background-size: 120px 120px;
   background-position: 0 0, 60px 60px;
+  text-align: center;
+  color: #fff;
+}
+*/
+
+.select-theme {
+  background-color: #7ea772;
+  background-image:
+    /* paint-over layer to hide the grid on the right */
+    linear-gradient(90deg, rgba(126, 167, 114, 0.9) 45%, rgba(126, 167, 114, 0) 70%),
+    /* your two grid layers */
+    linear-gradient(45deg, rgba(255, 255, 255, 0.08) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.08) 75%),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.08) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.08) 75%);
+  background-size: auto, 120px 120px, 120px 120px;
+  background-position: 0 0, 0 0, 60px 60px;
   text-align: center;
   color: #fff;
 }
@@ -716,15 +830,176 @@ section {
 }
 
 .site-footer {
-  background: #fff;
-  text-align: center;
-  padding: 48px 16px;
-  border-top: 2px solid #000;
+  position: relative;
+  overflow: visible;
+  padding: 120px 24px 80px;
+  color: #fefefe;
+  background: url("imgs/FooterIMG.jpg") center/cover no-repeat;
 }
 
-.site-footer img {
-  width: 150px;
-  margin: 0 auto 12px;
+.site-footer.section-tear--top::before,
+.site-footer.section-tear--top::after {
+  background-image: url("imgs/FooterIMG.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 140px;
+  top: -90px;
+  mask: url("imgs/WhiteShred.png") center / 100% 140px no-repeat;
+  -webkit-mask: url("imgs/WhiteShred.png") center / 100% 140px no-repeat;
+}
+
+.site-footer.section-tear--top::after {
+  background-image: url("imgs/WhiteShred.png");
+  top: -78px;
+}
+
+.footer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 2;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+}
+
+.footer-title {
+  font-family: "Reverie", "Playfair Display", serif;
+  font-size: clamp(2.4rem, 4vw, 3rem);
+  margin: 0;
+}
+
+.footer-card {
+  background: rgba(120, 156, 111, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 18px 28px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 280px;
+  backdrop-filter: blur(4px);
+}
+
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+}
+
+.footer-logo-text {
+  font-family: "Reverie", "Playfair Display", serif;
+  font-size: 1.2rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 14px;
+}
+
+.footer-social {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #f7dafb;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.footer-social:hover {
+  background: rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+.footer-meta {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  max-width: 760px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.footer-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.footer-meta-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f7dafb;
+  color: #41543c;
+  font-size: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.footer-meta-icon.location::before { content: "📍"; }
+.footer-meta-icon.phone::before { content: "☎"; }
+
+.footer-bottom {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+}
+
+.footer-doodle {
+  position: absolute;
+  z-index: 2;
+  opacity: 0.8;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.footer-doodle-left {
+  left: 0;
+  top: -40px;
+  width: 220px;
+  height: 220px;
+  background-image: url("imgs/stars2.png");
+}
+
+.footer-doodle-right {
+  right: 0;
+  bottom: 0;
+  width: 180px;
+  height: 180px;
+  background-image: url("imgs/line1.png");
+}
+
+.footer-legacy-logo,
+.footer-legacy-text {
+  display: none;
 }
 
 @media (max-width: 1200px) {

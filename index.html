@@ -71,7 +71,7 @@
       </div>
     </section>
 
-    <section class="about" id="about">
+    <section  class="about section-tear section-tear--top section-tear--bottom" style="--tear-color: var(--soft-green);" id="about">
       <img class="about-doodle" src="/assets/doodle-left.png" alt="" aria-hidden="true" />
       <img class="about-star" src="imgs/stars2.png" alt="" aria-hidden="true" />
       <img class="about-line" src="imgs/line1.png" alt="" aria-hidden="true" />
@@ -85,7 +85,7 @@
       </div>
     </section>
 
-    <section class="shop-style" id="shop">
+    <section class="shop-style section-tear section-tear--top" id="shop">
       <div class="section-heading">
         <p style="color: rgb(0, 0, 0);font-size: 60px;">Check Out</p>
         <h2>New Products</h2>
@@ -106,7 +106,7 @@
       </div>
     </section>
 
-    <section class="select-theme" id="gallery">
+    <section class="select-theme section-tear section-tear--top" id="gallery">
       <div class="section-heading">
         <p style="color: #FFDAFB;font-size: 60px;">Select Your</p>
         <h2>Theme</h2>
@@ -140,9 +140,43 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <img src="imgs/logo.png" alt="Rusty Rack logo">
-    <p>&copy; 2025 Rusty Rack | All Rights Reserved</p>
+  <footer class="site-footer section-tear section-tear--top">
+    <div class="footer-overlay"></div>
+    <div class="footer-doodle footer-doodle-left" aria-hidden="true"></div>
+    <div class="footer-doodle footer-doodle-right" aria-hidden="true"></div>
+
+    <div class="footer-content">
+      <h2 class="footer-title">Contact Us</h2>
+
+      <div class="footer-card">
+        <div class="footer-logo-row">
+          <img class="footer-logo" src="imgs/logo.png" alt="Rusty Rack logo">
+          <span class="footer-logo-text">Rusty Rack</span>
+        </div>
+
+        <div class="footer-socials">
+          <a class="footer-social fb" href="#" aria-label="Facebook">f</a>
+          <a class="footer-social ig" href="#" aria-label="Instagram">IG</a>
+          <a class="footer-social tw" href="#" aria-label="Twitter">t</a>
+        </div>
+      </div>
+
+      <div class="footer-meta">
+        <div class="footer-meta-item">
+          <span class="footer-meta-icon location" aria-hidden="true"></span>
+          <p>Marmkael,<br>Beirut</p>
+        </div>
+        <div class="footer-meta-item">
+          <span class="footer-meta-icon phone" aria-hidden="true"></span>
+          <p>+961<br>76/907653</p>
+        </div>
+      </div>
+
+      <p class="footer-bottom">© 2025 Rusty Rack | All Rights Reserved</p>
+    </div>
+
+    <img src="imgs/logo.png" alt="Rusty Rack logo" class="footer-legacy-logo">
+    <p class="footer-legacy-text">&copy; 2025 Rusty Rack | All Rights Reserved</p>
   </footer>
 </body>
 
