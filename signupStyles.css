@@ -26,12 +26,25 @@
 }
 
 body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f7d1e5;
+  background-image:
+    linear-gradient(to right, rgba(107, 122, 104, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(107, 122, 104, 0.2) 1px, transparent 1px);
+  background-size: 60px 60px;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  position: relative; 
+}
+
+/*body {
   background: #789c6f;
   font-family: "Poppins", sans-serif;
-  overflow-x: hidden;   /* keep this */
-  min-height: 100vh;    /* keeps minimum screen height */
+  overflow-x: hidden;    
+  min-height: 100vh;    
   position: relative;
 }
+ */
 
 /* Add spacing so signup card doesn't touch navbar */
 .signup-page-wrapper {
@@ -163,6 +176,7 @@ body {
   align-self: flex-start;
 }
 
+
 .signup-form input {
   width: 100%;
   padding: 14px 18px;
@@ -192,8 +206,10 @@ body {
 }
 
 .signup-btn:hover {
-  box-shadow: 0 10px 18px rgba(0,0,0,0.25);
-  transform: translateY(-3px);
+  color: #789c6f;
+  background: #ffdafb;
+  border: 2px solid #789c6f;
+  transition: 0.2s ease;
 }
 
 /* ============================================
@@ -202,7 +218,7 @@ body {
 
 .green-x {
   position: absolute;
-  right: 250px;      /* moves it inward from right */
+  right: 240px;      /* moves it inward from right */
   width: 80px;      /* size similar to Figma */
   z-index: 15;
   pointer-events: none; /* don't block clicking */
@@ -251,3 +267,54 @@ body {
     pointer-events: none;  /* prevents blocking clicks */
     z-index: 1;         /* behind form but above background */
 }
+
+/* ============================================
+   LOGIN UNIQUE STYLES
+============================================ */
+
+.login-using {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #4a4a4a;
+}
+
+.login-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 50 !important;   /* Force them above doodles */
+}
+
+.login-icon img {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.2s ease;
+}
+
+.login-icon img:hover {
+  border: 1px solid #789c6f;
+  border-radius: 100%;
+  transform: translateY(-2px);
+  transition: 0.3s ease;
+}
+
+
+.forgot-password {
+  display: block;
+  font-size: 0.95rem;
+  color: #4a4a4a;
+  margin-top: -5px;
+  margin-right: 250px;
+  text-decoration: none;
+  z-index: 20;
+  position: relative;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
