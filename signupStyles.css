@@ -1,0 +1,253 @@
+/* ============================================
+   FONT IMPORTS
+============================================ */
+
+@font-face {
+  font-family: "Reverie";
+  src: url("fonts/REVERIE.otf") format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Kalista";
+  src: url("fonts/kalista/Kalista.otf") format("opentype"),
+       url("fonts/kalista/Kalista.ttf") format("truetype");
+  font-weight: 400;
+}
+
+/* ============================================
+   RESET + BODY
+============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #789c6f;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;   /* keep this */
+  min-height: 100vh;    /* keeps minimum screen height */
+  position: relative;
+}
+
+/* Add spacing so signup card doesn't touch navbar */
+.signup-page-wrapper {
+  padding-top: 140px; /* Distance under navbar */
+  display: flex;
+  justify-content: center;
+}
+
+/* ============================================
+   SIGNUP CARD POPUP
+============================================ */
+
+.signup-card {
+  background: #ffdafb;
+  width: 1100px;
+  height: 580px;
+  border: 3px solid #000;
+  border-radius: 40px;
+  box-shadow: 0 25px 40px rgba(0,0,0,0.25);
+
+  display: grid;
+  grid-template-columns: 500px auto;
+  padding: 40px 60px;
+  z-index: 10;
+}
+
+/* ============================================
+   POLAROID LEFT
+============================================ */
+
+.polaroid {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.polaroid-frame {
+  background: #fff;
+  border: none;
+
+  width: 500px;
+  height: 520px;
+  padding: 22px 22px 65px;
+
+  box-shadow: 0 35px 45px rgba(0,0,0,0.35);
+  transform: rotate(-4deg);
+
+  position: relative;
+  margin-left: -35px;
+  margin-top: -15px;
+}
+
+.polaroid-frame img {
+    width: 100%;
+    height: calc(100% - 120px); /* fills space above the text */
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+}
+
+.polaroid-frame span {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Kalista", cursive;
+  font-size: 3.4rem;
+  color: #789c6f;
+  letter-spacing: 1.5px;
+   text-transform: none !important;
+    font-variant: normal;
+    font-weight: normal;
+}
+
+.polaroid-video {
+    width: 100%;
+    height: 375px;       /* same as the old image */
+    object-fit: cover;
+    border-radius: 2px;
+    display: block;
+}
+
+
+/* ============================================
+   FORM SECTION
+============================================ */
+
+.signup-content {
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-content h1 {
+  font-family: "Reverie", serif;
+  font-size: 2.7rem;
+  margin-bottom: 6px;
+}
+
+.subtext {
+  font-size: 1.2rem;
+  margin-bottom: 28px;
+}
+
+.subtext a {
+  font-weight: 600;
+  color: #000;
+}
+
+.subtext a:hover {
+  color: #789c6f;
+}
+
+/* FORM */
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 420px;
+  align-items: center;
+}
+
+.signup-form label {
+  font-weight: 600;
+  font-family: "reverie", serif;
+  font-size: 1rem;
+  align-self: flex-start;
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #d8d8d8;
+  font-size: 0.95rem;
+}
+
+/* BUTTON */
+
+.signup-btn {
+  margin-top: 16px;
+  padding: 5px;   
+  height: 40px;
+  width: 120px;
+  
+  border-radius: 9px;
+  background: #789c6f;
+  border: none;
+  color: #ffdafb;
+
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+  text-align: center;
+}
+
+.signup-btn:hover {
+  box-shadow: 0 10px 18px rgba(0,0,0,0.25);
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   DOODLES
+============================================ */
+
+.green-x {
+  position: absolute;
+  right: 250px;      /* moves it inward from right */
+  width: 80px;      /* size similar to Figma */
+  z-index: 15;
+  pointer-events: none; /* don't block clicking */
+}
+
+
+/* Position all doodles floating on top of polaroid */
+.polaroid-doodle {
+  position: absolute;
+  z-index: 30;
+  pointer-events: none;
+}
+
+/* Specific pink star placement */
+.polaroid-star {
+  height: 160px !important;         /* <-- THIS is the size */
+  width: 160px !important;          /* <-- THIS is the size */
+  top: -35px;
+  left: -25px;
+  transform: rotate(-12deg);
+  opacity: 0.9;
+}
+
+
+/* Right-side pink doodle */
+.polaroid-splash {
+    height: 160px !important;
+    width: 165px !important;
+
+    position: absolute;
+    top: -50px;      /* move upward */
+    right: -55px;    /* push outside to the right */
+
+    transform: rotate(10deg); /* slight tilt */
+    
+    pointer-events: none;     /* so it doesn't block clicking */
+}
+
+
+/* Bottom-right green doodle */
+.green-lines-doodle {
+    position: absolute;
+    bottom: 80px;      /* move slightly outside for natural overlap */
+    right: 210px;       /* adjust as needed */
+    width: 200px;       /* resize to match Figma */      
+    pointer-events: none;  /* prevents blocking clicks */
+    z-index: 1;         /* behind form but above background */
+}
