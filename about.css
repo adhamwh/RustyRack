@@ -1,0 +1,769 @@
+/* ============================================
+   FONT IMPORTS (Reused from existing)
+============================================ */
+
+@font-face {
+  font-family: "Reverie";
+  src: url("fonts/REVERIE.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kalista";
+  src: url("fonts/kalista/Kalista.otf") format("opentype"),
+    url("fonts/kalista/Kalista.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   CSS VARIABLES (Reused from existing)
+============================================ */
+
+:root {
+  --pink: #ffdafb;
+  --pink-dark: #cb6ea0;
+  --soft-green: #789c6f;
+  --sage: #6b7a68;
+  --deep-green: #41543c;
+  --text: #201b1d;
+  --white: #ffffff;
+  --black: #000000;
+  --overlay-dark: rgba(0, 0, 0, 0.45);
+}
+
+/* ============================================
+   RESET & BASE STYLES (Reused from existing)
+============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", "Inter", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: #f7f2f6;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* ============================================
+   NAVBAR (Reused from existing)
+============================================ */
+
+.navbar {
+  height: 92px;
+  background: var(--pink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 64px;
+  border-bottom: 2px solid #000;
+}
+
+.logo img {
+  width: 250px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: none;
+  line-height: 1.1;
+}
+
+.nav-links a {
+  color: #1d1818;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.nav-links a:hover {
+  border-color: rgb(0, 0, 0);
+  transition: 0.3s;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 16px;
+}
+
+.icon-btn {
+  width: 80px;
+  height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn img {
+  width: 22px;
+  height: 22px;
+}
+
+/* ============================================
+   SECTION TEAR SYSTEM (Reused from existing)
+============================================ */
+
+.section-tear {
+  position: relative;
+  overflow: visible;
+}
+
+/* Shared tear pseudo-elements */
+.section-tear--top::before,
+.section-tear--top::after,
+.section-tear--bottom::before,
+.section-tear--bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  pointer-events: none;
+}
+
+/* Green tears (default) */
+.section-tear--top::before,
+.section-tear--bottom::before {
+  z-index: 3;
+  background-image: url("imgs/GreenShred.png");
+}
+
+.section-tear--top::after,
+.section-tear--bottom::after {
+  z-index: 2;
+  background-image: url("imgs/WhiteShred.png");
+}
+
+/* Top tear positioning */
+.section-tear--top::before {
+  top: -70px;
+}
+
+.section-tear--top::after {
+  top: -90px;
+}
+
+/* Bottom tear positioning */
+.section-tear--bottom::before {
+  bottom: -60px;
+  transform: scaleY(-1);
+}
+
+.section-tear--bottom::after {
+  bottom: -80px;
+  transform: scaleY(-1);
+}
+
+/* Invert bottom tear for hero section (face downwards) */
+.about-hero.section-tear--bottom::before {
+  bottom: -30px;
+  transform: scaleY(-1);
+}
+
+.about-hero.section-tear--bottom::after {
+  bottom: -75px;
+  transform: scaleY(-1);
+}
+
+/* Pink tears for pink sections */
+.about-events.section-tear--top::before {
+  background-image: url("imgs/PinkShred.png");
+  z-index: 3;
+}
+
+.about-events.section-tear--top::after {
+  background-image: url("imgs/WhiteShred.png");
+  z-index: 2;
+}
+
+/* ============================================
+   POLAROID STYLES (Reused from existing)
+============================================ */
+
+.polaroid-frame {
+  background: #fff;
+  width: 500px;
+  height: 520px;
+  padding: 22px 22px 65px;
+  position: relative;
+}
+
+.polaroid-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1px;
+}
+
+.polaroid-frame span {
+  position: absolute;
+  left: 60px;
+  font-size: 3rem;
+  letter-spacing: 0.2em;
+  color: #789c6f;
+  font-family: "kalista";
+}
+
+/* ============================================
+   HERO SECTION: Who is Rusty Rack
+============================================ */
+
+.about-hero {
+  background-color: var(--soft-green);
+  background-image:
+    linear-gradient(to right, rgba(107, 122, 104, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(107, 122, 104, 0.2) 1px, transparent 1px);
+  background-size: 60px 60px;
+  color: var(--white);
+  padding: 96px 64px;
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.about-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-hero-content {
+  max-width: 800px;
+}
+
+.about-hero-heading {
+  margin: 0 0 32px;
+  line-height: 1;
+}
+
+.about-hero-line1 {
+  display: block;
+  font-family: "Reverie", "Playfair Display", serif;
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 400;
+  color: #ffdafb;
+  margin-bottom: -20px;
+  transform: translateX(50px);
+}
+
+.about-hero-line2 {
+  display: block;
+  font-family: "Kalista", cursive;
+  font-size: 5rem;
+  font-weight: 100;
+  color: var(--white);
+  transform: translate(20px,-10px);
+}
+
+.about-hero-text {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.8;
+  color: var(--white);
+  margin: 0;
+}
+
+.about-hero-media {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 10;
+}
+
+.about-polaroid-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.about-polaroid {
+  position: relative;
+  transform: rotate(6deg);
+  z-index: 2;
+}
+
+.about-brush-stroke {
+  position: absolute;
+  top: -60px;
+  right: 220px;
+  width: 240px;
+  height: auto;
+  z-index: 3;
+  pointer-events: none;
+ 
+}
+
+
+.hero-polaroid-bag {
+    position: absolute;
+    top: 110px;        /* move up */
+    right: -180px;     /* move right */
+    width: 300px;     /* control size */
+    z-index: 4;       /* above polaroid */
+    pointer-events: none;
+    transform: rotate(6deg);
+  }
+  
+/* ============================================
+   STYLE SECTION: Add Style with Rusty Rack
+============================================ */
+
+.about-style {
+  background: url("imgs/AddStyle background.jpg") center/cover no-repeat;
+  color: var(--white);
+  padding: 96px 64px;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+}
+
+
+.about-style-star {
+    position: absolute;
+    left: -100px;      
+    top: 50%;
+    transform: translateY(-50%) rotate(-10deg);
+    width: 250px;      
+    z-index: 3;
+    pointer-events: none;
+  }
+
+.about-style-lines {
+    position: absolute;
+    right: 375px;        
+    top: -70px;
+    width: 100px;       
+    transform: rotate(280deg);
+    transform: rotateY(1);
+    z-index: 3;
+    pointer-events: none;
+  }
+
+.about-style-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlay-dark);
+  z-index: 1;
+}
+
+.about-style-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-style-heading {
+  margin: 0 0 32px;
+  line-height: 1;
+}
+
+.about-style-line1 {
+  display: block;
+  font-family: "Reverie", "Playfair Display", serif;
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: -20px;
+}
+
+.about-style-line2 {
+  display: block;
+  font-family: "Kalista", cursive;
+  font-size: clamp(4rem, 7vw, 6.5rem);
+  font-weight: 400;
+  color: var(--pink);
+  transform: translateY(-10px);
+}
+
+.about-style-text {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.8;
+  color: var(--white);
+  margin: 0;
+}
+
+/* ============================================
+   EVENTS SECTION: Upcoming Events
+============================================ */
+
+.about-events {
+  background: var(--pink);
+  color: var(--text);
+  padding: 96px 64px;
+  position: relative;
+}
+
+.about-events-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-events-media {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.about-events-polaroid-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.about-events-polaroid {
+  position: relative;
+  transform: rotate(-6deg);
+  z-index: 2;
+}
+
+.about-events .polaroid-frame span {
+    left: 110px;
+  }
+  
+
+.about-events-boots {
+  position: absolute;
+  bottom: -30px;
+  left: 370px;
+  width: 250px;
+  height: auto;
+  z-index: 10;
+  pointer-events: none;
+  transform: scaleX(-1);
+ 
+}
+
+.about-events-splash {
+    position: absolute;
+    top: -80px;
+    right: -170px;
+    width: 220px;
+    height: auto;
+    z-index: 3;
+    pointer-events: none;
+  }
+  
+
+.about-events-content {
+  max-width: 600px;
+  margin-left: auto;
+  
+}
+
+.about-events-heading {
+  margin: 0 0 32px;
+  line-height: 1;
+}
+
+.about-events-line1 {
+  display: block;
+  font-family: "Reverie", "Playfair Display", serif;
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-weight: 400;
+  color: #789c6f;
+  margin-bottom: -40px;
+  transform: translate(100px,-10px);
+}
+
+.about-events-line2 {
+  display: block;
+  font-family: "Kalista", cursive;
+  font-size: 5rem;
+  color: #789c6f;
+  transform: translate(200px,-10px);
+  font-weight: normal;
+}
+
+.about-events-text {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.8;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ============================================
+   FOOTER
+============================================ */
+
+.about-footer {
+  background: var(--soft-green);
+  color: var(--white);
+  padding: 80px 64px 40px;
+  position: relative;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 32px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-logo-img {
+    transform: translate(-80px, 60px);
+  width: 400px;
+  height: auto;
+}
+
+.footer-brand-name {
+  font-family: "Reverie", "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: var(--white);
+}
+
+.footer-column-title {
+  font-family: "Reverie", "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #ffdafb;
+  font-weight: 400;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: var(--white);
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
+}
+
+.footer-socials {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.footer-socials img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-socials a:hover {
+  opacity: 0.8;
+}
+
+.footer-contact {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--white);
+  font-weight: 500;
+}
+
+.footer-copyright {
+  text-align: center;
+  color: var(--white);
+  font-size: 0.9rem;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+============================================ */
+
+@media (max-width: 1200px) {
+  .about-hero-container,
+  .about-events-container {
+    gap: 60px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 960px) {
+  .navbar {
+    padding: 0 32px;
+  }
+
+  .nav-links {
+    gap: 16px;
+    font-size: 0.85rem;
+  }
+
+  .about-hero,
+  .about-style,
+  .about-events {
+    padding: 64px 32px;
+  }
+
+  .about-hero-container,
+  .about-events-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .about-hero-content,
+  .about-events-content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .about-hero-media,
+  .about-events-media {
+    justify-content: center;
+  }
+
+  .about-polaroid,
+  .about-events-polaroid {
+    transform: rotate(0deg);
+  }
+
+  .about-brush-stroke {
+    display: none;
+  }
+
+  .about-events-boots {
+    display: none;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 0 16px;
+    height: 80px;
+  }
+
+  .logo img {
+    width: 180px;
+  }
+
+  .nav-links {
+    gap: 8px;
+    font-size: 0.75rem;
+  }
+
+  .icon-btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  .about-hero,
+  .about-style,
+  .about-events {
+    padding: 48px 24px;
+    min-height: auto;
+  }
+
+  .about-hero-line1,
+  .about-style-line1,
+  .about-events-line1 {
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+  }
+
+  .about-hero-line2,
+  .about-style-line2,
+  .about-events-line2 {
+    font-size: clamp(3rem, 9vw, 4rem);
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    align-items: center;
+  }
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
