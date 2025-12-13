@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="imgs/logo.png">
+    </div>
+
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="#">About Us</a>
+        <a href="#">Gallery</a>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+    <div class="profile_links">
+        <a href="cart.html"><img src="imgs/cart.png"></a>
+        <img src="#">
+    </div>
+</header>
+
+<div class="cart-wrapper">
+    <!-- CART HEADING -->
+    <div id="cartheading">
+        <p>Shopping</p>
+        <span>Cart</span>
+    </div>
+
+    <!-- CART SECTION -->
+    <section class="cart">
+        <div class="cart-container">
+
+            <!-- LEFT SIDE (ITEM LIST) -->
+            <div class="items_cart"></div>
+
+            <!-- RIGHT SIDE (SUMMARY BOX) -->
+            <div class="summary-box">
+                <h2>Order Summary</h2>
+                <div class="summary-line">
+                    <span>Sub Total</span>
+                    <span id="subtotal">$0</span>
+                </div>
+                <div class="summary-line">
+                    <span>Discount (15%)</span>
+                    <span id="discount">$0</span>
+                </div>
+                <div class="summary-line">
+                    <span>Delivery Fee</span>
+                    <span id="delivery">$0</span>
+                </div>
+                <hr>
+                <div class="summary-line total">
+                    <span>Total</span>
+                    <span id="total">$0</span>
+                </div>
+                <button class="pay-btn">Pay Now</button>
+            </div>
+
+        </div>
+    </section>
+</div>
+<section class="suggestions">
+
+    <div id="suggestions_heading">
+        <p>You might like</p>
+    </div>
+
+    <div class="suggestions_imgs">
+        
+    </div>
+</section>
+<script src="cart.js"></script>
+</body>
+</html>

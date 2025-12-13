@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #789C6F;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size: 60px 60px;
+    font-family: 'Poppins';
+    
+    display: flex;
+    flex-direction: column; /* header on top, cart below */
+    min-height: 100vh;      /* full viewport height */
+    position: relative;
+}
+/* HEADER ---------------------------------------------------- */
+@font-face{
+    font-family:'Kalista';
+    src: url('fonts/Kalista.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Reverie';
+    src: url('fonts/REVERIE.otf') format('opentype');
+}
+@font-face{
+    font-family: 'Poppins';
+    src: url('fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+header {
+    background-color: #FFDAFB;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Poppins';
+    font-size: 1.8rem;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin-left: -200px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    transition: border 0.3s ease;
+    border-radius: 25px;
+    border: 3px solid transparent;
+    padding: 10px; 
+}
+
+.nav a:hover {
+    border: 3px solid black;
+}
+#cartheading{
+margin-left: 820px;
+margin-top: 100px;
+    
+}
+#cartheading p{
+font-family: 'Reverie';
+color: #FFDAFB;
+ font-size: 5.6rem;
+
+}
+#cartheading span{
+    font-family: 'Kalista';
+    color: white;
+    font-size: 6rem;
+    margin-left: 140px;
+    position: relative;
+    top: -60px; 
+   
+    
+}
+.cart {
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    align-items: center;     /* vertical centering */
+    flex: 1;                 /* takes remaining space below header */
+    padding: 40px 20px;
+}
+
+.cart-container {
+    width: 95%;
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+}
+
+/* LEFT SIDE ITEMS BOX --------------------------------------- */
+.items_cart {
+    background: transparent;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* EACH ITEM CARD -------------------------------------------- */
+.cart-item {
+    background: #FFDAFB;
+    border: 4px solid black;
+    border-radius: 25px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 120px 2fr 1fr 1fr auto; /* image | info | quantity | total | delete */
+    align-items: center;
+    gap: 20px;
+}
+
+/* HEADER ROW (plain text) */
+.cart-header {
+    background: transparent; /* no pink */
+    border: none;
+    padding: 0;
+    font-size: 1.1rem;
+    color: white;
+}
+
+/* ITEM IMAGE */
+.cart-item img {
+    width: 100%;
+    height: auto;
+    border: 3px solid black;
+    border-radius: 15px;
+}
+
+/* ITEM INFO (Name + Size) */
+.item-info {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering */
+    align-items: center;     /* horizontal centering */
+    text-align: center;
+    gap: 5px;
+}
+
+/* QUANTITY BUTTONS */
+.quantity-box {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centers buttons horizontally */
+    gap: 10px;
+}
+
+/* QUANTITY BUTTON STYLE */
+.qty-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid black;
+    background: #789C6F;
+    font-size: 1.4rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ITEM TOTAL */
+.item-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* DELETE BUTTON */
+.delete-btn {
+    background: #789C6F;
+    border: 3px solid black;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-btn img {
+    width: 18px;
+}
+
+/* SUMMARY BOX ------------------------------------------------ */
+.summary-box {
+    background: #FFDAFB;
+    border: 4px solid black;
+    border-radius: 25px;
+    padding: 30px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.summary-box h2 {
+    font-family: 'Reverie';
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.total span:last-child {
+    font-size: 1.6rem;
+}
+
+.pay-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    background: #789C6F;
+    color: black;
+    border: 3px solid black;
+    border-radius: 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+}

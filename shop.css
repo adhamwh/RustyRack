@@ -1,0 +1,300 @@
+*{
+    margin: 0;
+    padding:0;
+}
+@font-face{
+    font-family:'Kalista';
+    src: url('fonts/Kalista.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Reverie';
+    src: url('fonts/REVERIE.otf') format('opentype');
+}
+@font-face{
+    font-family: 'Poppins';
+    src: url('fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+header{
+background-color: #FFDAFB;
+width: 100%;
+height: auto;
+display: flex;
+justify-content: space-between;
+/* padding:0.4rem; */
+align-items: center;
+/* gap:40rem; */
+/* border: 2px solid black; */
+font-family: 'Poppins';
+font-size: 1.8rem;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin-left: -200px;
+}
+.nav a{
+text-decoration: none;
+color: black;
+ transition: border 0.3s ease;
+    border-radius: 25px;
+    border: 3px solid transparent;
+    padding:10px; 
+}
+.nav a:hover{
+    border: 3px solid black;
+}
+.product_hero{
+    width: 100%;
+    height: 50rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(imgs/productbg.png);
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.product_text p{
+    font-family: Reverie;
+    font-size: 7rem;
+    color:#FFDAFB;
+}
+.product_text span{
+    font-family:'Kalista';
+    font-size: 8.5rem;
+    color:white;
+    margin-left: 120px;
+    position: relative;
+    top:-60px;
+}
+.polariod1{
+    position: absolute;
+    left:200px;
+    transform: scale(1.2);
+    
+}
+.polariod2{
+    position: absolute;
+    right:200px;
+    transform: rotate(30deg);
+    top:20px;
+    
+}
+#doodle1{
+    position:absolute;
+    top:65px;
+    left:50px;
+    transform: scale(1.5);
+}
+#doodle2{
+    position: absolute;
+    bottom: -70px;
+    right:0px;
+}
+.products{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #789C6F;
+    padding-top: 80px;
+
+}
+#doodle3{
+    position: absolute;
+    left:0px;
+    top:30px;
+    z-index: 4;
+}
+#paperwhite1{
+    position: absolute;
+    width:100%;
+    top:-120px;
+    z-index: 1;
+}
+#papergreen1{
+    position: absolute;
+    width:100%;
+    top:-90px;
+    z-index: 1;
+}
+/* #papergreen2{
+    position: absolute;
+    width: 100%;
+    transform: rotate(180deg);
+    z-index: -1;
+    bottom:-120px;
+} */
+
+#productheading{
+    position: relative;
+    z-index:3;
+    padding-top: 40px;
+    /* border: 2px solid black; */
+}
+
+#productheading p{
+  font-family: 'Reverie';
+    font-size: 7rem;
+    color:#FFDAFB;
+}
+#productheading span{
+    font-family:'Kalista';
+    font-size: 8rem;
+    color:white;
+    margin-left: 155px;
+    position: relative;
+    top:-60px;
+
+}
+.products_container{
+     width: 95%;        
+    max-width: 1500px;  
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;   
+    gap:2rem;
+    /* border: 10px solid black; */
+}
+.product_card{
+ width: calc(33.333% - 2rem); 
+}
+.product_card {
+    
+    border-radius: 12px;
+    padding: 1rem;
+    box-sizing: border-box;
+    width: calc(25% - 2rem);
+    justify-content:center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.product_image img {
+    width: 100%;   /* fills the card width */
+    height: auto; 
+    border-radius: 10px;
+    display: block;
+}
+
+.product_info {
+    display: flex;
+    flex-direction: column;
+    /* gap: 0rem; */
+    /* border: 2px solid black; */
+    width: 100%; 
+    font-family: 'Poppins';
+      min-height: 10rem;   
+    padding: 0.5rem;
+}
+.product_info p,
+.product_info h3 {
+    margin: 0;       
+    padding: 0;
+}
+/* Category + Size row */
+.top_row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+     margin-bottom: 0.2rem;
+}
+.category{
+    color:#FFDAFB;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.size{
+    color:black;
+    font-size:1.25rem;
+    font-weight:700;
+}
+
+/* Price + Button row */
+.bottom_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+.price{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.product_name {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.add_to_cart{
+    background-color: #FFDAFB;
+    color:black;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+.add_to_cart:hover{
+    background-color: transparent;
+}
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url(imgs/footerbg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:43rem;
+    /* opacity: 0.7; */
+}
+.heading{
+    font-family: 'Reverie';
+    color:#FFDAFB;
+    font-size: 6rem;
+    position: relative;
+    top:45px;
+}
+.links{
+    background-color: #789C6F;
+    width:32rem;
+    height:11.5rem;
+    text-align: center;
+    padding-top: 20px;
+}
+.nav_links{
+    display: flex;
+    justify-content: center;
+    gap:3rem;
+}
+.nav_links{
+    text-decoration: none;
+    
+}
+.locations{
+    width:50rem;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Poppins';
+    font-weight: 600;
+    color:white;
+    font-size: 1.75rem;
+}
+#location{
+    text-align: center;
+}
+#mobile{
+    text-align: center;
+}

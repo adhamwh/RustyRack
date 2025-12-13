@@ -1,0 +1,115 @@
+[
+  {
+    "id": 1,
+    "name": "Cath Kidsto British Designer Bag",
+    "price": 25,
+    "category": "dress",
+    "theme": "Grunge",
+    "size": "",
+    "images": ["products/cath_kidsto_british_designer_bag.png"]
+  },
+  {
+    "id": 2,
+    "name": "Eminem T-Shirt",
+    "price": 9,
+    "category": "T-Shirt",
+    "theme": "Street",
+    "size": "S",
+    "images": ["products/eminem_tshirt.png"]
+  },
+   {
+    "id": 3,
+    "name": "Fairycore Christelle Paris",
+    "price": 13,
+    "category": "Top",
+    "theme": "Boho",
+    "size": "M",
+    "images": ["products/fairycore_christelle_paris.png"]
+  },
+   {
+    "id": 4,
+    "name": "Full Volume Gothic Strapless Top",
+    "price": 19,
+    "category": "Top",
+    "theme": "Gothic",
+    "size": "M/L",
+    "images": ["products/full_volume_gothic_strapless_top.png"]
+  },
+   {
+    "id": 5,
+    "name": "Ghost Band T-Shirt",
+    "price": 16,
+    "category": "T-Shirt",
+    "theme": "Street",
+    "size": "S",
+    "images": ["products/ghost_band_tshirt.png"]
+  },
+   {
+    "id": 6,
+    "name": "Grunge Denim Black Skirt",
+    "price": 13,
+    "category": "Skirt",
+    "theme": "Grunge",
+    "size": "M/L",
+    "images": ["products/grungy_denim_black_skirt.png"]
+  },
+   {
+    "id": 7,
+    "name": "Hawaiin Creations Patterned Shirt",
+    "price": 20,
+    "category": "T-Shirt",
+    "theme": "Street",
+    "size": "XL",
+    "images": ["products/hawaiin_creations_patterned_shirt.png"]
+  },
+   {
+    "id": 8,
+    "name": "Midi Asymmetrical Y2K Black Skirt",
+    "price": 18,
+    "category": "Skirt",
+    "theme": "Grunge",
+    "size": "M/L",
+    "images": ["products/midi_asymmetrical_y2k_black_skirt.png"]
+  },
+   {
+    "id": 9,
+    "name": "Mini Dark Red Shorts",
+    "price": 10,
+    "category": "Shorts",
+    "theme": "Street",
+    "size": "M",
+    "images": ["products/mini_dark_red_shorts.png"]
+  },
+     {
+    "id": 10,
+    "name": "Retro Hippie Wrap-on Mini Skirt",
+    "price": 17,
+    "category": "Skirt",
+    "theme": "Street",
+    "size": "S",
+    "images": ["products/retro_hippie_wrapon_mini_skirt.png"]
+  }
+  ,
+     {
+    "id": 11,
+    "name": "Vintage Chrisper Floral Skirt",
+    "price": 18,
+    "category": "Skirts",
+    "theme": "Boho",
+    "size": "M",
+    "images": ["products/vintage_chrisper_floral_skirt.png"]
+  }
+  ,
+     {
+    "id": 12,
+    "name": "Vintage edc By Espirit SB",
+    "price": 12,
+    "category": "Shoulder Bag",
+    "theme": "Boho",
+    "size": "",
+    "images": ["products/vintage_edc_by_espirit.png"]
+  }
+  
+  
+
+]
