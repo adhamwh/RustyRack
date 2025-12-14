@@ -27,6 +27,9 @@ align-items: center;
 font-family: 'Poppins';
 font-size: 1.8rem;
 }
+.logo{
+    margin-left:100px ;
+}
 .nav{
     display: flex;
     justify-content: center;
@@ -573,10 +576,109 @@ color:black;
     position: relative;
     top: -50px; 
 }
-/* === YOUR EXISTING CSS HERE === */
 
-/* ----------------- MOBILE RESPONSIVE ----------------- */
-/* Hide hamburger on desktop */
+.about-footer {
+  background-color: #789C6F;
+  color: white;
+  padding: 80px 64px 40px;
+  position: relative;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 32px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-logo-img {
+    transform: translate(-80px, 60px);
+  width: 400px;
+  height: auto;
+}
+
+.footer-brand-name {
+  font-family: "Reverie", "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: var(--white);
+}
+
+.footer-column-title {
+  font-family: "Reverie", "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #ffdafb;
+  font-weight: 400;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: var(--white);
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
+}
+
+.footer-socials {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.footer-socials img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-socials a:hover {
+  opacity: 0.8;
+}
+
+.footer-contact {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--white);
+  font-weight: 500;
+}
+
+.footer-copyright {
+  text-align: center;
+  color: var(--white);
+  font-size: 0.9rem;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .hamburger {
     display: none;
     font-size: 2rem;

@@ -246,55 +246,104 @@ color: black;
 .add_to_cart:hover{
     background-color: transparent;
 }
-footer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background-image: url(imgs/footerbg.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height:43rem;
-    /* opacity: 0.7; */
+.about-footer {
+  background-color: #789C6F;
+  color: white;
+  padding: 80px 64px 40px;
+  position: relative;
 }
-.heading{
-    font-family: 'Reverie';
-    color:#FFDAFB;
-    font-size: 6rem;
-    position: relative;
-    top:45px;
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 32px;
 }
-.links{
-    background-color: #789C6F;
-    width:32rem;
-    height:11.5rem;
-    text-align: center;
-    padding-top: 20px;
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
-.nav_links{
-    display: flex;
-    justify-content: center;
-    gap:3rem;
+
+.footer-logo-img {
+    transform: translate(-80px, 60px);
+  width: 400px;
+  height: auto;
 }
-.nav_links{
-    text-decoration: none;
-    
+
+.footer-brand-name {
+  font-family: "Reverie", "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: var(--white);
 }
-.locations{
-    width:50rem;
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Poppins';
-    font-weight: 600;
-    color:white;
-    font-size: 1.75rem;
+
+.footer-column-title {
+  font-family: "Reverie", "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 5px;
+  color: #ffdafb;
+  font-weight: 400;
 }
-#location{
-    text-align: center;
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
-#mobile{
-    text-align: center;
+
+.footer-links a {
+  color: var(--white);
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
+}
+
+.footer-socials {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+.footer-socials img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer-socials a:hover {
+  opacity: 0.8;
+}
+
+.footer-contact {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--white);
+  font-weight: 500;
+}
+
+.footer-copyright {
+  text-align: center;
+  color: var(--white);
+  font-size: 0.9rem;
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
