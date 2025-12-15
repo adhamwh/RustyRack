@@ -27,6 +27,11 @@ align-items: center;
 font-family: 'Poppins';
 font-size: 1.8rem;
 }
+.profile_links{
+    display: flex;
+    gap: 30px;
+    margin-right: 30px;
+}
 .logo{
     margin-left:100px ;
 }

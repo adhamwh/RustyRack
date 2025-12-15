@@ -47,9 +47,13 @@ header {
     justify-content: center;
     align-items: center;
     gap: 4rem;
-    margin-left: -200px;
+    margin-left: 200px;
 }
-
+.profile_links{
+    display: flex;
+    gap: 30px;
+    margin-right: 30px;
+}
 .nav a {
     text-decoration: none;
     color: black;
@@ -61,6 +65,9 @@ header {
 
 .nav a:hover {
     border: 3px solid black;
+}
+.logo{
+    margin-left: 50px;
 }
 #cartheading{
 margin-left: 820px;
@@ -106,6 +113,7 @@ color: #FFDAFB;
     display: flex;
     flex-direction: column;
     gap: 10px;
+     margin-top: -30px;
 }
 
 /* EACH ITEM CARD -------------------------------------------- */
@@ -127,8 +135,22 @@ color: #FFDAFB;
     padding: 0;
     font-size: 1.1rem;
     color: white;
+    /* border: 2px solid black; */
+    position: relative;
 }
-
+#product{
+    margin-left: 50px;
+}
+#delete{
+margin-right: -60px;
+}
+#total_header{
+    margin-right: -100px;
+}
+#quantity{
+    margin-left: 360px;
+    
+}
 /* ITEM IMAGE */
 .cart-item img {
     width: 100%;
@@ -184,7 +206,6 @@ color: #FFDAFB;
 /* DELETE BUTTON */
 .delete-btn {
     background: #789C6F;
-    border: 3px solid black;
     width: 35px;
     height: 35px;
     border-radius: 50%;
@@ -192,6 +213,8 @@ color: #FFDAFB;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    border: transparent;
 }
 
 .delete-btn img {
@@ -235,4 +258,40 @@ color: #FFDAFB;
     font-size: 1.3rem;
     font-weight: 700;
     cursor: pointer;
+}
+#suggestions_heading{
+    margin-top: 20px;
+    margin-left: 50px;
+    font-weight: 400;
+    font-size: 64px;
+    font-family: 'Reverie';
+    color: #FFDAFB;
+}
+.suggestions_imgs{
+    margin-top: 30px;
+    display: flex;
+    gap:4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.add_to_cart{
+    background-color: #FFDAFB;
+    color:black;
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+.add_to_cart:hover{
+    background-color: transparent;
+}
+.product_info{
+   
+ color: white;
+}
+.category{
+    color: #FFDAFB;
+    font-weight: 700;
 }
