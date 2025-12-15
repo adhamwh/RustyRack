@@ -65,7 +65,8 @@
                     <span>Total</span>
                     <span id="total">$0</span>
                 </div>
-                <button class="pay-btn">Pay Now</button>
+                <a href="payment.html">
+              <button class="pay-btn">Pay Now</button></a>
             </div>
 
         </div>
@@ -81,7 +82,104 @@
         
     </div>
 </section>
+<!-- Payment Modal -->
+<div id="paymentModal" class="modal">
+  <img src="imgs/x.png"class="close" alt="Close">
+
+<div class="modalheading">
+  <h1>Billing<span>Info</span></h1>
+</div>
+
+  <label>Email</label>
+  <input type="email" />
+
+  <label>Address</label>
+  <input type="text" />
+
+  <label>Mobile Number</label>
+  <input type="text" />
+
+  <label>Name On Card</label>
+  <input type="text" />
+
+  <label>Card Number</label>
+  <input type="text" />
+
+  <div class="row">
+    <div class="field">
+      <label>Expires</label>
+      <input type="text" />
+    </div>
+    <div class="field">
+      <label>SVV Number</label>
+      <input type="text" />
+    </div>
+  </div>
+
+  <div class="options">
+    <label><input type="radio" name="type" /> Delivery</label>
+    <label><input type="radio" name="type" /> Pick Up</label>
+  </div>
+
+  <div class="terms">
+    <input type="checkbox" />
+    <span>I have read and agreed on terms and conditions</span>
+  </div>
+
+  <button class="confirm-pay-btn">Pay Now</button>
+</div>
+
+<footer class="about-footer section-tear section-tear--top">
+    <div class="footer-container">
+      <div class="footer-column footer-brand">
+        <img src="imgs/logo.png" alt="Rusty Rack logo" class="footer-logo-img">
+        
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-column-title">Navigate</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-column-title">Socials</h3>
+        <ul class="footer-socials">
+          <li>
+            <a href="#" aria-label="Instagram">
+              <img src="imgs/IGWhite.png" alt="Instagram icon">
+              <span>@Rustyrack</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="TikTok">
+              <img src="imgs/TiktokWhite.png" alt="TikTok icon">
+              <span>@Rustyrack</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="Facebook">
+              <img src="imgs/FaceWhite.png" alt="Facebook icon">
+              <span>Rusty Rack</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3 class="footer-column-title">Contact Us</h3>
+        <ul class="footer-contact">
+          <li><img src="imgs/WhatsAppWhite.png" alt="WhatsApp icon"> +961 03 123 456</li>
+          <li><img src="imgs/EmailWhite.png" alt="Email icon"> shopwithus@rustyrack.com</li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-copyright">© 2025 Rusty Rack | All Rights Reserved</p>
+  </footer>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="cart.js"></script>
+
 </body>
 </html>

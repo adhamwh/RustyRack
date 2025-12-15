@@ -1,0 +1,11 @@
+[
+    {
+       "name": "Black skirt",
+       "image": ["products/blackskirt.png"]
+    },
+    {
+       "name": "plaid skirt",
+        "image": ["products/plaidskirt.png"]
+    }
+   
+]

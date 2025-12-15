@@ -476,19 +476,6 @@ color: #FFDAFB;
     /* z-index: 3; */
     top:170px;
 }
-#costumize{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index:0;
-    position: relative;
-    padding-top: 150px;
-    background-color: #FFDAFB;
-   
-    /* border: 2px solid black; */
-    
-}
 #greendoodle{
     position: absolute;
     left: 0px;
@@ -501,46 +488,71 @@ color: #FFDAFB;
     right: 0px;
     bottom:0px;
 }
-.slideshow-wrapper {
+#costumize {
+    background-color: #FFDAFB;
+    padding: 150px 0;
     position: relative;
-    width: 300px; /* adjust to your needs */
-    overflow: hidden;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    background-image: 
+         linear-gradient(to right, rgba(255,255,255,0.5) 2px, transparent 0),
+        linear-gradient(to bottom, rgba(255,255,255,0.5) 2px, transparent 0);
+    background-size: 100px 100px; /* big squares */
 }
 
-.costumizetops {
+
+.slider-block {
+    position: relative;
+    width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.slideshow-wrapper {
+    width: 300px;
+    overflow: hidden;
+}
+
+
+.costumizetops,
+.costumizebottoms,
+.costumizeshoes {
     display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
-.costumizetops img {
+.costumizetops img,
+.costumizebottoms img,
+.costumizeshoes img {
     width: 100%;
     flex-shrink: 0;
 }
+
 
 .slide-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background-color: transparent;
-    color: black;
-    border: 3px solid black;   
-    padding: 14px 20px;        
+    border: 3px solid black;
+    padding: 14px 20px;
+    font-size: 30px;
     cursor: pointer;
+    border-radius: 15px;
     z-index: 10;
-    border-radius: 15px;       
-    font-size: 30px;          
 }
+
 .left-btn {
-    margin-top: 200px;
-    left:800px;
+    left: 0;
 }
 
 .right-btn {
-    margin-top: 200px;
-    right: 800px;
+    right: 0;
 }
-
 
 
 /* -150 */

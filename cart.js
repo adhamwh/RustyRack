@@ -1,21 +1,29 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 const container = document.querySelector(".items_cart");
 
-function removeItem(id) {
-    cart = cart.filter(item => item.id !== id);
+function saveCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function removeItem(id) {
+    cart = cart.filter(item => item.id != id);
+    saveCart();
     renderCart();
 }
 
 function changeQty(id, direction) {
     cart = cart.map(item => {
-        if (item.id === id) {
-            if (direction === "plus") item.quantity++;
-            if (direction === "minus" && item.quantity > 1) item.quantity--;
+        if (item.id == id) {
+            if (direction === "plus") {
+                item.quantity++;
+            } else if (direction === "minus" && item.quantity > 1) {
+                item.quantity--;
+            }
         }
         return item;
     });
-    localStorage.setItem("cart", JSON.stringify(cart));
+
+    saveCart();
     renderCart();
 }
 
@@ -23,64 +31,71 @@ function renderCart() {
     container.innerHTML = "";
 
     if (cart.length === 0) {
-        container.innerHTML = `<p style="padding:20px; font-size:1.4rem; font-family:Poppins;">Your cart is empty 💔</p>`;
-        document.getElementById("subtotal").textContent = "$0";
-        document.getElementById("discount").textContent = "$0";
-        document.getElementById("delivery").textContent = "$0";
-        document.getElementById("total").textContent = "$0";
+        container.innerHTML = `
+            <p style="padding:20px; font-size:1.4rem; font-family:Poppins;">
+                Your cart is empty 
+            </p>`;
+        updateSummary(0);
         return;
     }
 
+    // HEADER
     const headerRow = document.createElement("div");
-    headerRow.classList.add("cart-item", "cart-header");
+    headerRow.className = "cart-item cart-header";
     headerRow.innerHTML = `
-        <div id="product" style="text-align:center; font-weight:700;">Product</div>
-        <div id="quantity" style="text-align:center; font-weight:700;">Quantity</div>
-        <div id="total_header" style="text-align:center; font-weight:700;">Total</div>
-        <div id="delete" style="text-align:center; font-weight:700;">Delete</div>
+        <div id="product">Product</div>
+        <div id="quantity">Quantity</div>
+        <div id="total_header">Total</div>
+        <div id="delete">Delete</div>
     `;
     container.appendChild(headerRow);
 
     let subtotal = 0;
 
     cart.forEach(item => {
-        subtotal += item.price * item.quantity;
-        const itemTotal = (item.price * item.quantity).toFixed(2);
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
 
         const cartItem = document.createElement("div");
-        cartItem.classList.add("cart-item");
+        cartItem.className = "cart-item";
         cartItem.innerHTML = `
-            <img src="${item.image}" alt="Product">
+            <img src="${item.image}">
             <div class="item-info">
                 <p>${item.name}</p>
                 <p style="font-size:1rem; opacity:0.7;">${item.size || ""}</p>
             </div>
+
             <div class="quantity-box">
-                <button class="qty-btn" onclick="changeQty('${item.id}', 'minus')">-</button>
+                <button class="qty-btn" onclick="changeQty('${item.id}','minus')">-</button>
                 <span>${item.quantity}</span>
-                <button class="qty-btn" onclick="changeQty('${item.id}', 'plus')">+</button>
+                <button class="qty-btn" onclick="changeQty('${item.id}','plus')">+</button>
             </div>
-            <div class="item-total">$${itemTotal}</div>
+
+            <div class="item-total">$${itemTotal.toFixed(2)}</div>
+
             <button class="delete-btn" onclick="removeItem('${item.id}')">
-                <img src="imgs/delete.png" alt="del">
+                <img src="imgs/delete.png">
             </button>
         `;
         container.appendChild(cartItem);
     });
 
-    let discount = subtotal * 0.15;
-    let delivery = subtotal > 0 ? 5 : 0;
-    let total = subtotal - discount + delivery;
+    updateSummary(subtotal);
+}
 
-    document.getElementById("subtotal").textContent = "$" + subtotal.toFixed(2);
-    document.getElementById("discount").textContent = "-$" + discount.toFixed(2);
-    document.getElementById("delivery").textContent = "$" + delivery.toFixed(2);
-    document.getElementById("total").textContent = "$" + total.toFixed(2);
+function updateSummary(subtotal) {
+    const discount = subtotal * 0.15;
+    const delivery = subtotal > 0 ? 5 : 0;
+    const total = subtotal - discount + delivery;
+
+    document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById("discount").textContent = `-$${discount.toFixed(2)}`;
+    document.getElementById("delivery").textContent = `$${delivery.toFixed(2)}`;
+    document.getElementById("total").textContent = `$${total.toFixed(2)}`;
 }
 
 renderCart();
 
-// ---- SUGGESTIONS SECTION ----
 fetch("products.json")
     .then(res => res.json())
     .then(products => {
@@ -135,3 +150,25 @@ fetch("products.json")
             }
         });
     });
+    const modal = document.getElementById("paymentModal");
+const payBtn = document.querySelector(".pay-btn");
+const closeBtn = document.querySelector(".modal .close");
+
+// Open modal on button click
+payBtn.addEventListener("click", (e) => {
+    e.preventDefault(); // prevent default link
+    modal.style.display = "block";
+});
+
+// Close modal when clicking X
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Close modal if clicking outside content
+window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
+

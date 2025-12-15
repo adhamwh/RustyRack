@@ -1,39 +1,57 @@
-// Fetch your JSON file
-fetch("tops.json")
-.then(res => res.json())
-.then(data => {
-    const container = document.querySelector(".costumizetops");
+// HELPER FUNCTION TO INIT SLIDER
+function initSlider(containerSelector, leftBtn, rightBtn, jsonFile) {
+    fetch(jsonFile)
+    .then(res => res.json())
+    .then(data => {
+        const container = document.querySelector(containerSelector);
 
-    // Inject images
-    data.forEach(top => {
-        const img = document.createElement("img");
-        img.src = top.image[0];
-        img.alt = top.name;
-        container.appendChild(img);
+        // Inject images
+        data.forEach(item => {
+            const img = document.createElement("img");
+            img.src = item.image[0];
+            img.alt = item.name;
+            container.appendChild(img);
+        });
+
+        // Slideshow functionality
+        let index = 0;
+        const slides = container.querySelectorAll("img");
+
+        const updateSlide = () => {
+            container.style.transform = `translateX(-${index * 100}%)`;
+        };
+
+        leftBtn.addEventListener("click", () => {
+            index = (index - 1 + slides.length) % slides.length;
+            updateSlide();
+        });
+
+        rightBtn.addEventListener("click", () => {
+            index = (index + 1) % slides.length;
+            updateSlide();
+        });
     });
+}
 
-    // Slideshow functionality
-    let index = 0;
-    const slides = document.querySelectorAll(".costumizetops img");
+// INIT ALL SLIDERS
+const sliderBlocks = document.querySelectorAll(".slider-block");
+sliderBlocks.forEach((block, i) => {
+    const leftBtn = block.querySelector(".left-btn");
+    const rightBtn = block.querySelector(".right-btn");
+    const container = block.querySelector(".slideshow-wrapper > div");
 
-    const updateSlide = () => {
-        container.style.transform = `translateX(-${index * 100}%)`;
-    };
+    let jsonFile = "";
+    if (container.classList.contains("costumizetops")) jsonFile = "tops.json";
+    else if (container.classList.contains("costumizebottoms")) jsonFile = "bottoms.json";
+    else if (container.classList.contains("costumizeshoes")) jsonFile = "shoes.json";
 
-    document.querySelector(".right-btn").addEventListener("click", () => {
-        index = (index + 1) % slides.length;
-        updateSlide();
-    });
-
-    document.querySelector(".left-btn").addEventListener("click", () => {
-        index = (index - 1 + slides.length) % slides.length;
-        updateSlide();
-    });
+    initSlider(`.${container.className}`, leftBtn, rightBtn, jsonFile);
 });
 
-  const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
+// HAMBURGER MENU
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav');
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
-    });
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
